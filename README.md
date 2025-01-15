@@ -1,8 +1,8 @@
 # Matplotlib Business Card
 
 This project demonstrates how to lay out a business card using matplotlib:
-![](Matplotlib%20Business%20Card/BusinessCard-300dpi.png)
-![](Matplotlib%20Business%20Card/BusinessCard-annotated.png)
+![Business Card](/screenshots/BusinessCard-300dpi.png)
+![Business Card Layout](/screenshots/BusinessCard-annotated.png)
 ## Why?!
 
 Matplotlib is not at all the best tool for making a business card - I would not recommend using matplotlib as a replacement for design software if your intent is to achieve results at anything resembling a somewhat reasonable rate. So why does this project exist?
