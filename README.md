@@ -1,8 +1,8 @@
 # Matplotlib Business Card
 
 This project demonstrates how to lay out a business card using matplotlib:
-![Business Card](/screenshots/BusinessCard-300dpi.png)
-![Business Card Layout](/screenshots/BusinessCard-annotated.png)
+![Business Card](/output/BusinessCard-300dpi.png)
+![Business Card Layout](/output/BusinessCard-annotated.png)
 ## Why?!
 
 Matplotlib is not at all the best tool for making a business card - I would not recommend using matplotlib as a replacement for design software if your intent is to achieve results at anything resembling a somewhat reasonable rate. So why does this project exist?
@@ -27,6 +27,8 @@ To discover the full details on any of these techniques for use in your matplotl
 Roughly in order of relevance for improving your everyday charts, this project features the following matplotlib tricks:
 
 ### Text Outlines
+![Text Outlines](/screenshots/outlines.png)
+
 To add an outline stroke to a matplotlib text, we can use maplotlib’s **patheffects** library:
 
 ```
@@ -42,6 +44,8 @@ To obtain a handle on one or more Text objects to which to add an outline effect
 This trick is especially useful for displaying text on the inside of a bar chart’s bars. Practical applications include highlighting an individual value or fitting a bar label that would be out of bounds if placed outside of its bar.
 
 ### Internal bar labels
+![Bar Labels](/screenshots/text_in_box.png)
+
 Adding labels inside of a bar chart’s bars is useful for a wide variety of plots.  We can achieve this effect by getting a handle on the individual bars (**[Rectangle](https://matplotlib.org/stable/api/_as_gen/matplotlib.patches.Rectangle.html)** instances) created when making a bar chart, then using the very versatile **[annotate](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.annotate.html)** method to insert texts relative to each bar:
 
 ```
@@ -77,9 +81,13 @@ header = figure.add_axes(header_area_relative)
 ```
 
 ### Artist Tree Dumps
+![Layout Tree](/screenshots/debugLog.png)
+
 This project creates a reusable [matplotliblayout](matplotliblayout.py) module that can pretty-print the layout of all parts of a figure down to pixel-level precision. I used this tool frequently throughout the project to help troubleshoot layouts, and I expect to use it to help in future projects as well.
 
 ### Raster Graphics
+![Raster Graphic](/screenshots/raster.png)
+
 Integrating an image asset (the headshot) into a matplotlib plot is deceptively difficult. At first, it seems like the very versatile [imshow](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.imshow.html) method is the answer. This utility can display an image if given image data or a heat map if given a 2D matrix of values.
 
 However, imshow does not allow us to control layout - it takes over a chart completely instead of inserting an image into it. It also does not solve how to load the image from a file. To add an image asset at a specific point in a plot, we need to use a combination of the PIL library, AxesImage, an image extents instead:
@@ -95,6 +103,7 @@ im.set_extent((box.x0, box.x1, box.y0, box.y1))
 ```
 
 ### Vector / SVG Graphics
+![Vector Graphics](/screenshots/svgs.png)
 
 Integrating vector/svg assets into a plot was by far the most challenging aspect of this project because matplotlib does not offer direct support for svgs.
 
